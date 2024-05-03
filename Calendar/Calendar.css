@@ -1,0 +1,205 @@
+.calendar {
+    margin: 5%;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .calendar {
+        width: 50%;
+        float: left;
+        margin: 8% 0 10px 10%;
+        font-family: BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+
+    }
+
+    .event-form-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        background-color: #fff;
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.8s ease;
+    }
+
+    .event-form-container.hidden {
+        transform: translateX(100%);
+    }
+
+    .event-form-container.show {
+        transform: translateX(0);
+        /* Show sidebar */
+    }
+
+
+    .days {
+        height: 43rem;
+    }
+
+    .calendar-header {
+        padding: 20px;
+        border-bottom: solid 1px;
+        border-color: #ccc;
+    }
+
+    .month-header,
+    .year-header {
+        margin: 0 20px;
+    }
+
+    .month-grid.show,
+    .year-grid.show {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-bottom: solid 1px;
+    border-color: #ccc;
+
+}
+
+.calendar-header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.month-header,
+.year-header {
+    position: relative;
+    cursor: pointer;
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+}
+
+.month-grid {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    font-size: 16px;
+}
+
+.year-grid {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 16px;
+}
+
+
+.month-header:hover .month-grid,
+.year-header:hover .year-grid,
+.month-grid.show,
+.year-grid.show {
+    display: grid;
+    cursor: pointer;
+}
+
+.month-grid div,
+.year-grid div {
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+}
+
+.month-grid div:hover,
+.year-grid div:hover {
+    background-color: #ccc;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 10px;
+    background-color: #f0f0f0;
+
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 10px;
+    background-color: #f0f0f0;
+    height: 30rem;
+
+
+}
+
+.weekday {
+    padding: 10px;
+    text-align: center;
+}
+
+.day {
+    padding: 5px;
+    text-align: right;
+    border: 1px solid #cccccc9c;
+    background-color: white;
+}
+
+.day:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.event-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 2px 2px;
+
+}
+
+.appointment {
+    background-color: #ff7f0e;
+}
+
+.meeting {
+    background-color: #2ca02c;
+}
+
+.birthday {
+    background-color: #1f77b4;
+}
+
+.other {
+    background-color: #9467bd;
+}
+
+.more-events-indicator {
+    display: flex;
+    align-items: flex-start;
+}
